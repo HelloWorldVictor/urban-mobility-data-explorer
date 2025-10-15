@@ -11,3 +11,4 @@ wheels/
 
 # Raw data
 data/train.csv
+.env
