@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Mobility Data Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Urban Mobility Data Explorer</h1>
+        <p class="subtitle">Comprehensive taxi trip analytics dashboard</p>
+      </header>
+
+      <!-- Stats Cards -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Trips</span>
+          </div>
+          <div class="stat-value" id="total-trips">-</div>
+          <div class="stat-footer">
+            <span class="stat-description">Trip volume over time period</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Duration</span>
+          </div>
+          <div class="stat-value" id="total-duration">-</div>
+          <div class="stat-footer">
+            <span class="stat-description"
+              >Total trip time across all trips</span
+            >
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Passengers</span>
+          </div>
+          <div class="stat-value" id="total-passengers">-</div>
+          <div class="stat-footer">
+            <span class="stat-description">Total passengers transported</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Avg Trip Duration</span>
+            <span class="stat-trend positive" id="avg-trend">+4.5%</span>
+          </div>
+          <div class="stat-value" id="avg-duration">-</div>
+          <div class="stat-footer">
+            <span class="stat-description">Average per trip</span>
+          </div>
+        </div>
+      </section>
