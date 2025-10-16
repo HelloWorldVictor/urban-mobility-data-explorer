@@ -170,3 +170,5 @@ Potential improvements:
 - [ ] Dark mode toggle
 - [ ] Custom chart types (bar, pie, heatmap)
 - [ ] Mobile app version (PWA)
+
+Video Walkthrough Demo: https://youtu.be/1nl6POwvlfU
