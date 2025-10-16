@@ -159,40 +159,6 @@ chart = new Chart(ctx, {
 });
 ```
 
-## Features in Detail
-
-### Responsive Design
-
-- **Desktop**: Multi-column layout with all features visible
-- **Tablet**: Adaptive grid, stacked filters
-- **Mobile**: Single column, touch-friendly controls
-
-### Loading States
-
-- Animated loading indicators
-- Skeleton screens for stats cards
-- Loading messages in table
-
-### Error Handling
-
-- Graceful API error handling
-- User-friendly error messages
-- Console logging for debugging
-
-## Browser Support
-
-- ✅ Chrome/Edge 90+
-- ✅ Firefox 88+
-- ✅ Safari 14+
-- ✅ Opera 76+
-
-## Performance
-
-- **Initial Load**: ~500ms
-- **Chart Update**: ~200ms
-- **Table Load**: ~300ms (100 records)
-- **Minimal Dependencies**: Only Chart.js (60KB gzipped)
-
 ## Future Enhancements
 
 Potential improvements:
