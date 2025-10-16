@@ -2,6 +2,11 @@
 
 A modern, responsive dashboard for exploring taxi trip data built with vanilla JavaScript, HTML, and CSS.
 
+## Screenshots
+
+![Screenshot 1](./docs/image-1.png)
+![Screenshots 2](./docs/image-2.png)
+
 ## Features
 
 ### 📊 Statistics Dashboard
@@ -27,7 +32,7 @@ A modern, responsive dashboard for exploring taxi trip data built with vanilla J
 
 ### 📋 Data Table
 
-- Paginated trip records (100 per page)
+- Paginated trip records (20 per page)
 - **Easy Filters:**
   - Minimum passengers
   - Minimum duration
@@ -52,14 +57,34 @@ A modern, responsive dashboard for exploring taxi trip data built with vanilla J
 
 ### Installation
 
-1. **Start the Backend API** (if not already running)
+1. **Clone the Repository**
 
    ```bash
-   cd /path/to/urban_mobility_data_explorer
-   uv run uvicorn backend.main:app --reload
+   git clone <https://github.com/HelloWorldVictor/urban-mobility-data-explorer.git>
+   cd urban_mobility_data_explorer
+    ```
+
+2. **Copy Environment Configuration**
+
+   If needed, copy `.env.example` to `.env` and adjust settings.
+
+   ```bash
+    cp .env.example .env
+    ```
+
+    then fill the `DB_URI` variable with a postgres connection string, e.g.:
+
+    ```bash
+    DB_URI=postgresql+psycopg2://username:password@localhost:5432/yourdatabase
+    ```
+
+3. **Start the Backend API** (if not already running)
+
+   ```bash
+   uv run fastapi dev backend/main.py
    ```
 
-2. **Open the Frontend**
+4. **Open the Frontend**
 
    **Option 1: Simple HTTP Server (Python)**
 
@@ -71,21 +96,23 @@ A modern, responsive dashboard for exploring taxi trip data built with vanilla J
    Then open: <http://localhost:8080>
 
    **Option 2: VS Code Live Server**
-   - Install "Live Server" extension
-   - Right-click `index.html` → "Open with Live Server"
+
+- Install "Live Server" extension
+- Right-click `index.html` → "Open with Live Server"
 
    **Option 3: Direct File Access**
-   - Open `frontend/index.html` directly in your browser
-   - Note: Some browsers may have CORS restrictions
+
+- Open `frontend/index.html` directly in your browser
+- Note: Some browsers may have CORS restrictions
 
 ## Project Structure
 
-```
-frontend/
-├── index.html          # Main HTML structure
-├── styles.css          # All styles and responsive design
-├── app.js              # Application logic and API calls
-└── README.md           # This file
+Top-level folders in this repository:
+
+```bash
+├── backend/ # Backend API code
+├── data/ # Data cleaning and database seeding
+└── frontend/ # This frontend dashboard
 ```
 
 ## API Integration
@@ -177,38 +204,3 @@ Potential improvements:
 - [ ] Dark mode toggle
 - [ ] Custom chart types (bar, pie, heatmap)
 - [ ] Mobile app version (PWA)
-
-## Troubleshooting
-
-### CORS Errors
-
-If you see CORS errors in the console:
-
-1. Make sure the backend is running
-2. Check that `API_BASE_URL` in `app.js` is correct
-3. Verify backend CORS settings allow `*` origin
-
-### Chart Not Rendering
-
-1. Check browser console for errors
-2. Ensure Chart.js CDN is accessible
-3. Verify API is returning valid data
-
-### No Data Loading
-
-1. Check backend is running: `curl http://127.0.0.1:8000/`
-2. Verify database connection
-3. Check browser console for API errors
-
-## License
-
-Part of the Urban Mobility Data Explorer project.
-
-## Screenshots
-
-The dashboard matches the reference design with:
-
-- Clean, modern card-based UI
-- Professional color scheme
-- Smooth animations
-- Mobile-responsive layout
