@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Mobility Data Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Urban Mobility Data Explorer</h1>
+        <p class="subtitle">Comprehensive taxi trip analytics dashboard</p>
+      </header>
+
+      <!-- Stats Cards -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Trips</span>
+          </div>
+          <div class="stat-value" id="total-trips">-</div>
+          <div class="stat-footer">
+            <span class="stat-description">Trip volume over time period</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Duration</span>
+          </div>
+          <div class="stat-value" id="total-duration">-</div>
+          <div class="stat-footer">
+            <span class="stat-description"
+              >Total trip time across all trips</span
+            >
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Passengers</span>
+          </div>
+          <div class="stat-value" id="total-passengers">-</div>
+          <div class="stat-footer">
+            <span class="stat-description">Total passengers transported</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Avg Trip Duration</span>
+            <span class="stat-trend positive" id="avg-trend">+4.5%</span>
+          </div>
+          <div class="stat-value" id="avg-duration">-</div>
+          <div class="stat-footer">
+            <span class="stat-description">Average per trip</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Time Series Chart -->
+      <section class="chart-section">
+        <div class="chart-header">
+          <div>
+            <h2>Total Trips</h2>
+            <p class="chart-subtitle">Trip volume over time</p>
+          </div>
+          <div class="time-range-selector">
+            <button class="time-btn" data-range="7d">Last 7 days</button>
+            <button class="time-btn" data-range="30d">Last 30 days</button>
+            <button class="time-btn active" data-range="3m">
+              Last 3 months
+            </button>
+            <button class="time-btn" data-range="all">All time</button>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="timeSeriesChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Data Table -->
+      <section class="table-section">
+        <div class="table-header">
+          <h2>Trip Details</h2>
+          <div class="table-filters">
+            <input
+              type="number"
+              id="filter-passengers"
+              placeholder="Min passengers"
+              min="1"
+              max="9"
+            />
+            <input
+              type="number"
+              id="filter-duration"
+              placeholder="Min duration (sec)"
+              min="0"
+            />
+            <select id="filter-vendor">
+              <option value="">All Vendors</option>
+              <option value="1">Vendor 1</option>
+              <option value="2">Vendor 2</option>
+            </select>
+            <button id="apply-filters" class="btn-primary">
+              Apply Filters
+            </button>
+            <button id="reset-filters" class="btn-secondary">Reset</button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table id="trips-table">
+            <thead>
+              <tr>
+                <th>Trip ID</th>
+                <th>Vendor</th>
+                <th>Pickup Time</th>
+                <th>Dropoff Time</th>
+                <th>Duration</th>
+                <th>Passengers</th>
+                <th>Pickup Location</th>
+                <th>Dropoff Location</th>
+              </tr>
+            </thead>
+            <tbody id="trips-tbody">
+              <tr>
+                <td colspan="8" class="loading">Loading trips...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-pagination">
+          <button id="prev-page" class="btn-secondary" disabled>
+            Previous
+          </button>
+          <span id="page-info">Page 1</span>
+          <button id="next-page" class="btn-secondary">Next</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
